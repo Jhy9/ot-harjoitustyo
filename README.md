@@ -8,3 +8,4 @@ Normal text. *cursive*, **bold**
 [gitlog.txt](laskarit/viikko1/gitlog.txt)
 
 muutos
+toinen muutos
