@@ -1,0 +1,105 @@
+commit d3d61dfdf01a678568d1c66f73969541a8a0005d
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 14:44:06 2022 +0200
+
+    muutettu
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 804fdbd818ed344a36722c31af27439f83613e37
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 14:39:28 2022 +0200
+
+    files lisätty
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 6b2e95b9e8a8b252852adf506bc05b0723b65a14
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 14:34:28 2022 +0200
+
+    lisää muutoksia
+
+ eka.txt    | 3 ++-
+ kolmas.txt | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 164b26f69d95698eb53148bf98a63368d7e49588
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 14:32:35 2022 +0200
+
+    nimi muutettu
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 490edfcae050b588da2e1deaaa89930e374c9949
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 14:31:09 2022 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 414d113952f20ff47e6321c8687c73acc55e38aa
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 14:28:44 2022 +0200
+
+    update2
+
+ tiedosto.txt | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit 0705be63c33746ec5f8255d59c37816bcb6a00fe
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 14:27:19 2022 +0200
+
+    tiedosto update
+
+ tiedosto.txt | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+commit 41da1f4b6924981be7b2ef7a231e22aef2bdf6a3
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 13:59:21 2022 +0200
+
+    lisää modeja
+
+ kolmas.txt      | 1 +
+ stuff/jokin.txt | 0
+ toinen.txt      | 1 +
+ 3 files changed, 2 insertions(+)
+
+commit 9c70454e90b7bb6c87fb6b2e7ca792091ed8069f
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 13:57:20 2022 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2cefe079800152da0189220b7a2cc5c978c0e59b
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 13:55:36 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 84e304ef7fcacf0111760021c1b8076d777deb52
+Author: Juuso Hyyryläinen <juuso.hyyrylainen@helsinki.fi>
+Date:   Tue Nov 8 13:53:09 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
