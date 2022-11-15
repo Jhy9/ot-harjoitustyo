@@ -1,5 +1,4 @@
-# Big title
-Normal text. *cursive*, **bold**
+# Readme
 
 ## Viikko1
 
@@ -7,5 +6,7 @@ Normal text. *cursive*, **bold**
 
 [gitlog.txt](laskarit/viikko1/gitlog.txt)
 
-muutos
-toinen muutos
+## Viikko2
+[Työaikakirjanpito](dokumentaatio/tyoaikakirjanpito.md)
+
+[Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
