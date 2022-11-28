@@ -5,3 +5,4 @@
 |21.11|3|peliruudukon toteutus|
 |22.11|1.5|testien aloitus|
 |22.11|1|väliaikainen ui|
+|28.11|1|tkinter opettelua|
