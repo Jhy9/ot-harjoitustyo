@@ -17,3 +17,5 @@ poetry run invoke start
 [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 
 [Changelog](dokumentaatio/changelog.md)
+
+[Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
