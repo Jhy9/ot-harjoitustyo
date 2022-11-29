@@ -3,30 +3,27 @@ from sudoku.tile import Tile
 
 class Board:
     board = []
-    def __init__(self, initialNumbers):
-        for x in initialNumbers:
-            self.board.append(Tile(x))
+    locks = []
 
+    def __init__(self, initial_numbers):
+        for num in initial_numbers:
+            self.board.append(Tile(num))
+            if int(num) > 0:
+                self.locks.append(1)
+            else:
+                self.locks.append(0)
 
+    def change_value(self, location, new_value):
+        self.board[location].change_value(new_value)
 
-    def changeValue(self, location, newValue):
-        self.board[location].changeValue(newValue)
-
-
-    def print(self):
-        i = 0
-        s = ""
-        for x in self.board:
-            s += str(x)+ " "
-            i += 1
-            if i == 9:
-                i = 0
-                print(s)
-                s = ""                
-
+    def give_array_form(self):
+        board_array = []
+        for i in self.board:
+            board_array.append(int(i.value))
+        return board_array
 
     def __str__(self):
-        s = ""
+        string_form = ""
         for i in self.board:
-            s += str(i)
-        return s
+            string_form += str(i)
+        return string_form

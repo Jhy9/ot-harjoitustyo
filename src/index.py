@@ -1,11 +1,11 @@
-from sudoku.board import Board
 from ui.textUI import TextUI
 
-def Main():
-    testString = "000005309000270040100904020700000402000006100002050070031007960005000001900000000"
-    ui = TextUI()
-    ui.launchGame(testString)
+
+def main():
+    test_str = "000005309000270040100904020700000402000006100002050070031007960005000001900000000"
+    ui_text = TextUI()
+    ui_text.launchGame(test_str)
 
 
 if __name__ == "__main__":
-    Main()
+    main()
