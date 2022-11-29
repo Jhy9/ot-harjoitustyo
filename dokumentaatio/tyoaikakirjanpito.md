@@ -6,3 +6,4 @@
 |22.11|1.5|testien aloitus|
 |22.11|1|väliaikainen ui|
 |28.11|1|tkinter opettelua|
+|29.11|5|pelin tarkistusten ohjelmointia|
