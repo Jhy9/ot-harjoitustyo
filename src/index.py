@@ -1,10 +1,10 @@
 from ui.textUI import TextUI
-
+from ui.visualUI import VisualUI
 
 def main():
     test_str = "000005309000270040100904020700000402000006100002050070031007960005000001900000000"
-    ui_text = TextUI()
-    ui_text.launchGame(test_str)
+    text = TextUI()
+    text.launchGame(test_str)
 
 
 if __name__ == "__main__":
