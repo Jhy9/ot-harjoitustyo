@@ -13,7 +13,7 @@ Ruudun arvon muutos, joka ei aiheuta virhettä pelin kannalta:
 ```mermaid
 sequenceDiagram
 
-main ->> Board: changeValue(location, value)
-Board ->> Tile: changeValue(value)
-main ->> Game: check_Board()
+main ->> Board: change_value(location, value)
+Board ->> Tile: change_value(value)
+main ->> Game: check_board()
 Game -->> main: 1
