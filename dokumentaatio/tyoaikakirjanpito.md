@@ -8,3 +8,4 @@
 |28.11|1|tkinter opettelua|
 |29.11|5|pelin tarkistusten ohjelmointia|
 |4.12|1.5|Tkinter opettelua|
+|5.12|3|Tkinter opettelua|
