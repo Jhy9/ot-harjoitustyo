@@ -8,3 +8,7 @@
 ## Viikko 4
  - Pelin virhetarkistus toteutettu
  - Peliruudukon toiminta testattu
+
+## Viikko 5
+ - Virhetarkistuksia paranneltu
+ - Pelin testejä lisätty
