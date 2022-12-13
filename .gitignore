@@ -2,3 +2,4 @@ __pycache__
 .coverage
 htmlcov
 .visualUI
+src/Savegame/*.txt

@@ -1,21 +1,18 @@
 import math
-from sudoku.save_manager import Save_manager
+from sudoku.save_manager import SaveManager
 class Game:
     board = None
+    save_manager = None
 
-    def __init__(self, board):
-        self.board = board
+    def __init__(self):
+        self.save_manager = SaveManager()
+        self.board = self.save_manager.new_game()
 
     def save(self, name):
-        saver = Save_manager()
-        saver.save_game(name, self.board)
+        self.save_manager.save_game(name, self.board)
 
-    def check_board_values(self):
-        """Tarkistaa, että ruutujen sisällöt ovat oikeanlaisia"""
-        for tile in self.board:
-            if int(tile.value) not in range (10):
-                return 0
-        return 1
+    def load(self, name):
+        self.board = self.save_manager.load_game(name)
 
     def check_board(self):
         """Tarkistaa onko ruudukossa virheitä tai onko se valmis
@@ -70,7 +67,8 @@ class Game:
 
     def check_win(self, board):
         """Jos ruudukossa ei ole yhtään nollaa(eli tyhjiä ruutuja) ja virheitä ei ole, on peli
-            voitettu"""
+            voitettu
+            Saa syötteenä peliruudukon"""
         for i in range(81):
             if board[i]==0:
                 return 0
@@ -78,7 +76,8 @@ class Game:
 
     def array_check(self, array):
         """Tarkastaa, onko virhe tapahtunut:
-        Jos rivillä/sarakkeella/ruudukolla on kaksi samaa numeroa, niin se on virhe"""
+        Jos rivillä/sarakkeella/ruudukolla on kaksi samaa numeroa, niin se on virhe.
+        Saa syötteenä arrayn, jossa on kunkin numeron/tyhjän ruudun ilmaantumisten määrä."""
         #Palauttaa 0 jos on virhe ja 1 jos ei
         for i in range (1,10):
             if array[i] > 1:
@@ -86,7 +85,8 @@ class Game:
         return 1
 
     def tile_marker(self, tiles, start):
-        """Palauttaa virheelliset ruudut"""
+        """Palauttaa virheelliset ruudut
+        Saa syötteenä merkittävän ruutukokoelman tyypin sekä aloitusindeksin"""
         #tiles 1 = rivi, tiles 2 = sarake, tiles 3 = 3x3 ruudukko
         faulty_tiles = []
         if tiles == 1:

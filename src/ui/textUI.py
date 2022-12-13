@@ -1,19 +1,17 @@
 from sudoku.game import Game
-from sudoku.board import Board
 
 
 class TextUI:
-    def launchGame(self, board_data):
-        bo = Board(board_data)
-        game = Game(bo)
-        if game.check_board_values == 0:
-            print("Error: board contains invalid values")
-
+    def launchGame(self):
+        game = Game()
         print("This is temporary ui to test out the game")
         print("Currently there are no checks implemented")
         print("Commands:")
         print("x -  quit")
         print("add xyz - insert value z on board position xy (x and y in range 0:8)")
+        print("save name - saves game into name")
+        print("load name - loads game from name")
+        print("new - starts new game with random board")
         print("x goes from left to right and y up to down")
         print("0 means that tile is empty")
         while (True):
@@ -45,4 +43,16 @@ class TextUI:
                 if len(board_check) > 1:
                     print("Error in tiles:")
                     print(board_check)
+
+            if (s.startswith("load")):
+                command = s.split(" ")
+                game.load(command[1])
+
+            if (s.startswith("save")):
+                command = s.split(" ")
+                game.save(command[1])
+
+            if(s == "new"):
+                game = Game()
+
 

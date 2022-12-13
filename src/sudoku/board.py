@@ -6,6 +6,7 @@ class Board:
     locks = []
 
     def __init__(self, initial_numbers, locked=None):
+        self.board = []
         if locked is None:
             self.create_new_board(initial_numbers)
         else:
@@ -33,6 +34,17 @@ class Board:
         for i in self.board:
             board_array.append(int(i.value))
         return board_array
+
+    def give_save_form(self):
+        """Palauttaa ruudukon muodossa (ruudukon sisältö + , + lukotetut ruudut)
+        tallennusta varten"""
+        board_data= ""
+        for i in self.board:
+            board_data+= str(i)
+        board_data += ","
+        for i in self.locks:
+            board_data += str(i)
+        return board_data
 
     def __str__(self):
         string_form = ""
