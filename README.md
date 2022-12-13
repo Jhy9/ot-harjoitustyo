@@ -19,3 +19,5 @@ poetry run invoke start
 [Changelog](dokumentaatio/changelog.md)
 
 [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
+
+[Viikon 5 release](https://github.com/Jhy9/ot-harjoitustyo/releases/tag/viikko5)
