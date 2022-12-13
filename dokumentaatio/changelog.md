@@ -12,3 +12,8 @@
 ## Viikko 5
  - Virhetarkistuksia paranneltu
  - Pelin testejä lisätty
+
+## Viikko 6
+ - Keskeneräisten pelien lataus ja tallennus lisätty
+ - Aloitusruudukkojen määrää lisätty
+ - Pelaaja voi aloittaa uuden pelin komennolla
