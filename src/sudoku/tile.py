@@ -17,6 +17,7 @@ class Tile:
                 self.lock = False
 
     def change_value(self, new_value):
+        """Vaihtaa ruudussa olevaa lukua, jos ruutu ei ole lukittu"""
         if self.lock is False:
             if str(new_value) in self.valid_values:
                 self.value = new_value
