@@ -2,7 +2,7 @@ Luokkakaavio:
 ```mermaid
 classDiagram
 
-game "1...*"--"1" board
+game "1"--"1" board
 board "1"--"*" tile
 game -- save_manager
 save_manager .. board
