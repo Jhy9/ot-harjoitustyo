@@ -1,7 +1,7 @@
 import unittest
 
 from sudoku.board import Board
-
+from sudoku.save_manager import SaveManager
 class TestBoard(unittest.TestCase):
     def setUp(self):
         self.test_string = "000005309000270040100904020700000402000006100002050070031007960005000001900000000"

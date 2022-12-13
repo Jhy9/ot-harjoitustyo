@@ -7,6 +7,7 @@ class Board:
 
     def __init__(self, initial_numbers, locked=None):
         self.board = []
+        self.locks= []
         if locked is None:
             self.create_new_board(initial_numbers)
         else:
@@ -24,7 +25,7 @@ class Board:
         size = len(numbers)
         for i in range(size):
             self.board.append(Tile(numbers[i],locks[i]))
-        self.locks = locks
+            self.locks.append(int(locks[i]))
 
     def change_value(self, location, new_value):
         self.board[location].change_value(new_value)
