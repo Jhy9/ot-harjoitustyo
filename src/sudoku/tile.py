@@ -4,7 +4,7 @@ class Tile:
     value = 0
     lock = False
 
-    def __init__(self, value):
+    def __init__(self, value, lock = None):
         if str(value) in self.valid_values:
             val = int(value)
             if val > 0:
@@ -12,6 +12,9 @@ class Tile:
                 self.lock = True
         else:
             self.value = 0
+        if lock is not None:
+            if lock == 0:
+                self.lock = False
 
     def change_value(self, new_value):
         if self.lock is False:
