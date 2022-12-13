@@ -11,4 +11,5 @@
 |5.12|3|Tkinter opettelua|
 |6.12|5|Testien tekoa, toiminnallisuuden korjaamista|
 |13.12|2|Peliluokkien rekonstruktointia|
-|Yhteensä: |25|
+|13.12|2.5|Tallennus/lataus|
+|Yhteensä: |27.5|
