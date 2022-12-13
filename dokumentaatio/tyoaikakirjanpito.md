@@ -10,4 +10,5 @@
 |4.12|1.5|Tkinter opettelua|
 |5.12|3|Tkinter opettelua|
 |6.12|5|Testien tekoa, toiminnallisuuden korjaamista|
-|Yhteensä: |23|
+|13.12|2|Peliluokkien rekonstruktointia|
+|Yhteensä: |25|
