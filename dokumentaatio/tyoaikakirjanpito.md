@@ -12,4 +12,5 @@
 |6.12|5|Testien tekoa, toiminnallisuuden korjaamista|
 |13.12|2|Peliluokkien rekonstruktointia|
 |13.12|2.5|Tallennus/lataus|
-|Yhteensä: |27.5|
+|13.12|1.5|Testien lisäys|
+|Yhteensä: |29|
