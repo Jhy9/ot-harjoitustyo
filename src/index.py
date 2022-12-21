@@ -1,8 +1,8 @@
 from ui.textUI import TextUI
+from ui.gameView import GameView
 
 def main():
-    text = TextUI()
-    text.launchGame()
+    GameView()
 
 
 if __name__ == "__main__":
