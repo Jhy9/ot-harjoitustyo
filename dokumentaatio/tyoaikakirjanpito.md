@@ -13,4 +13,5 @@
 |13.12|2|Peliluokkien rekonstruktointia|
 |13.12|2.5|Tallennus/lataus|
 |13.12|1.5|Testien lisäys|
-|Yhteensä: |29|
+|21.12|5|Pelinäkymän luonti|
+|Yhteensä: |34|
