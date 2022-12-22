@@ -1,15 +1,16 @@
 import math
 from sudoku.save_manager import SaveManager
+from sudoku.board import Board
 class Game:
     board = None
     save_manager = None
 
-    def __init__(self):
+    def __init__(self, create = None):
         self.save_manager = SaveManager()
-        self.board = self.save_manager.new_game()
-
-    def save(self, name):
-        self.save_manager.save_game(name, self.board)
+        if create is None:
+            self.board = self.save_manager.new_game()
+        else:
+            self.board = Board([0]*81)
 
     def load(self, name):
         self.board = self.save_manager.load_game(name)

@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import filedialog
 import math
 from sudoku.game import Game
 
@@ -13,12 +14,26 @@ class GameView:
         self.game = Game()
         menus = tk.Menu(self.root)
         filemenu = tk.Menu(menus)
+        creatormenu = tk.Menu(menus)
         filemenu.add_command(label= "Uusi peli", command = self.start_new_game)
+        filemenu.add_command(label= "Lataa", command = self.load_game)
+        filemenu.add_command(label= "Tallenna", command = self.save_game)
         filemenu.add_command(label = "Sulje", command=exit)
-        menus.add_cascade(menu=filemenu, label = "File")
+        creatormenu.add_command(label = "Tyhjennä", command = self.empty_board)
+        creatormenu.add_command(label = "Tallenna uudeksi", command = self.save_board)
+        menus.add_cascade(menu=filemenu, label = "Valikko")
+        menus.add_cascade(menu=creatormenu, label = "Pelin luonti")
         self.root.config(menu= menus)
         self.createBoard()
         self.root.mainloop()
+
+    def start_new_game(self):
+        self.game = Game()
+        self.createBoard()
+
+    def empty_board(self):
+        self.game = Game("new")
+        self.createBoard()
 
     def createBoard(self):
         # Luo peliruudukon
@@ -41,10 +56,6 @@ class GameView:
                 tile.configure(font=("Arial", 16))
                 self.tiles.append(tile)
                 tile.bind('<KeyPress>', lambda event, arg=index: self.set_value(event, arg))
-
-    def start_new_game(self):
-        self.game = Game()
-        self.createBoard()
 
     def set_value(self, event, index):
         self.repaint()
@@ -90,5 +101,20 @@ class GameView:
                 tile.configure(bg = 'white')
             i+= 1
 
+    def load_game(self):
+        #Lataa pelin tiedostosta
+        filename = filedialog.askopenfilename(initialdir  = "src/Savegame", title= "Lataa")
+        if filename != "()":
+            self.game.load(filename)
+            self.createBoard()
+        else: 
+            print("moi :)")
 
+    def save_game(self):
+        #Tallentaa pelin kansioon .txt muodossa
+        filename = filedialog.asksaveasfilename(initialdir= "src/Savegame", title= "Tallenna")
+        self.game.save_manager.save_game(filename,self.game.board)
 
+    def save_board(self):
+        #Tallentaa peliruudukon games.txt tiedostoon
+        self.game.save_manager.add_new(self.game.board)

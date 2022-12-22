@@ -3,3 +3,5 @@ __pycache__
 htmlcov
 .visualUI
 src/Savegame/*.txt
+textUI.py
+gamesbackup.txt
