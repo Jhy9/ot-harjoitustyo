@@ -4,6 +4,10 @@ import math
 from sudoku.game import Game
 
 class GameView:
+    """Luokka, joka vastaa pelin käyttöliittymästä"""
+    """Huom! board luokan ruudukon indeksit eivät vastaa taulun tiles indeksejä (ei niin loppuun ajateltun suunnittelun vuoksi).
+    Muutamassa kohdassa on laskettu tämän takia muunnos indeksien välillä.
+    Kuva ongelmasta löytyy tiedostosta dokumentaatio/kuvat/indeksit"""
     game = None
     root = None
     tiles = []
@@ -28,10 +32,12 @@ class GameView:
         self.root.mainloop()
 
     def start_new_game(self):
+        """Luo uuden pelin ja sen jälkeen aloittaa sen kutsumalla uudestaan createBoard() metodia"""
         self.game = Game()
         self.createBoard()
 
     def empty_board(self):
+        """Sama kuin edellä paitsi että aloitetaan täysin tyhjällä ruudukolla (käytetään pelin luomiseen)"""
         self.game = Game("new")
         self.createBoard()
 
@@ -58,6 +64,8 @@ class GameView:
                 tile.bind('<KeyPress>', lambda event, arg=index: self.set_value(event, arg))
 
     def set_value(self, event, index):
+        """Sijoittaa näppäimenpainallus eventistä saadun arvon ruutuun ja sen jälkeen kutsuu game-luokkaa tarkastamaan
+        ruudukon. Jos ruudukossa on virheitä tai ruudukko on valmis, kutsutaan määrättyjä metodeja jatkotoimenpiteisiin."""
         self.repaint()
         tilei = index%9
         tilej = math.floor(index/9)
@@ -74,7 +82,7 @@ class GameView:
             self.paint_errors(errors)
 
     def paint_victory(self):
-        #Jos peli on voitettu, ruutu värjätään vihreäksi
+        #Jos peli on voitettu, kaikki ruudut värjätään vihreäksi
         for tile in self.tiles:
             tile.configure(bg = 'lightgreen')
 
@@ -104,14 +112,11 @@ class GameView:
     def load_game(self):
         #Lataa pelin tiedostosta
         filename = filedialog.askopenfilename(initialdir  = "src/Savegame", title= "Lataa")
-        if filename != "()":
-            self.game.load(filename)
-            self.createBoard()
-        else: 
-            print("moi :)")
+        self.game.load(filename)
+        self.createBoard()
 
     def save_game(self):
-        #Tallentaa pelin kansioon .txt muodossa
+        #Tallentaa pelin kansioon .txt muotoiseksi tiedostoksi
         filename = filedialog.asksaveasfilename(initialdir= "src/Savegame", title= "Tallenna")
         self.game.save_manager.save_game(filename,self.game.board)
 

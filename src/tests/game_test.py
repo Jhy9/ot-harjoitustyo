@@ -28,3 +28,8 @@ class TestGame(unittest.TestCase):
     def test_checkboard_returns_faulty_square(self):
         self.game.board.change_value(3, 4)
         self.assertEqual(self.game.check_board(), [[],[],[[3, 4, 5, 12, 13, 14, 21, 22, 23]]])
+
+    def test_constructor_with_parameter_starts_with_blank_board(self):
+        game2 = Game(1)
+        blank_str = "000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        self.assertEqual(blank_str, str(game2.board))

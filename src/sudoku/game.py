@@ -2,10 +2,14 @@ import math
 from sudoku.save_manager import SaveManager
 from sudoku.board import Board
 class Game:
+    """Pelin pääluokka, joka pitää itsellään pelin ruudukkoa sekä suorittaa ruudukon tarkistukset."""
     board = None
     save_manager = None
 
     def __init__(self, create = None):
+        """Konstruktori, joka ilman konstruktorin parametria hakee pelille uuden ruudukon save_manager luokasta.
+        Jos konstruktori saa arvon(, eli create ei ole tyhjä), niin siirrytään pelin luomistilaan, eli pelaajalle annetaan vain tyhjä ruudukko, jota hän voi
+        täyttää."""
         self.save_manager = SaveManager()
         if create is None:
             self.board = self.save_manager.new_game()
@@ -13,6 +17,7 @@ class Game:
             self.board = Board([0]*81)
 
     def load(self, name):
+        """Pyytää save_manageria lataamaan ruudukon muistista tiedostosta name(parametri) ja tallettaa sen board muuttujaan"""
         self.board = self.save_manager.load_game(name)
 
     def check_board(self):
