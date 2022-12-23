@@ -39,9 +39,13 @@ Valikon toiminnot ovat seuraavat:
  ![](kuvat/pelivalikko.png)
  
  Uusi peli- arpoo muistista uuden pelin ja asettaa sen ruudukkoon
+ 
  Lataa peli- Avaa pelin latausnäkymän, josta voi ladata keskeneräisen pelin .txt muotoisesta tiedostosa.
+ 
  Tallenna peli- Avaa tallennusnäkymän, jossa käyttäjä voi tallentaa kesken jääneen pelin.
+ 
  Sulje - sulkee ohjelman
+ 
  ![](kuvat/pelilatausnakyma.png)  ![](kuvat/pelitallennusnakyma.png)
  
  Tallennuksen ja latauksen oletuskansio on kohteessa src/Savegame
