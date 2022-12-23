@@ -15,4 +15,5 @@
 |13.12|1.5|Testien lisäys|
 |21.12|5|Pelinäkymän luonti|
 |22.12|4|Käyttöliittymän viimeistely, kommentointi|
-|Yhteensä: |38|
+|23.12|6|Koodin korjailua, dokumentointia|
+|Yhteensä: |44|
