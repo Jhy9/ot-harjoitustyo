@@ -17,3 +17,7 @@
  - Keskeneräisten pelien lataus ja tallennus lisätty
  - Aloitusruudukkojen määrää lisätty
  - Pelaaja voi aloittaa uuden pelin komennolla
+
+## Viikko 7
+ - Graafinen käyttöliittymä lisätty ja tekstikäyttöliittymä poistettu
+ - Pelaaja voi luoda uusia pelejä
