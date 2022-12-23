@@ -1,15 +1,18 @@
 # Vaatimusmäärittely
 
 ## Sovellus
-Sovellus on 9x9 ruudukkokoon sudokupeli. Sovellus pitää pelejä muistissa ja antaa niitä käyttäjälle ratkottavaksi.
+Sovellus on 9x9 ruudukkokoon sudokupeli.
 
 ## Käyttäjät
-Sovelluksella on yksi käyttäjätyyppi, joka voi pelata peliä sekä lisätä uusia pelejä.
+Sovelluksella on yksi käyttäjätyyppi, joka voi pelata peliä sekä luoda uusia pelejä.
 
 ## Perusversion toiminnallisuus
-- Käyttäjä voi ladata uuden pelin muistista ja pelata sitä 
-- Käyttäjä voi lisätä uuden pelin ja tallentaa sen muistiin
+- Käyttäjä voi pelata ohjelman arpomaa peliä
+- Käyttäjä voi arpoa uuden pelin pelattavaksi
+- Käyttäjä voi tallentaa keskeneräisen pelin muistiin
+- Käyttäjä voi ladata keskeneräisen pelin muistista ja jatkaa sitä
+- Käyttäjä voi luoda uuden pelin ja tallentaa sen muistiin
 
-## Mahdolliset lisätoiminnallisuudet
-- Käyttäjä voi tallentaa ja ladata keskeneräisiä pelejä
-- Käyttäjä voi lisätä ja pelata muita sudokun variaatioita (esim. 6x6)
+## Mahdolliset jatkokehitysideat
+- Ohjelma pystyy tarjoamaan ratkaisun sudokulle, jos ratkaisu on olemassa
+- Ohjelma tukee myös muita kuin 9x9 sudokuja
