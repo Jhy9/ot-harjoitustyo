@@ -10,8 +10,15 @@ class SaveManager:
         file = file_name
         with open(file,"r", encoding = "utf-8") as reader:
             data = reader.read()
-        game_data = data.split(",")
-        board = Board(game_data[0],game_data[1])
+        try:
+            game_data = data.split(",")
+            board = Board(game_data[0],game_data[1])
+        except IndexError:
+            print("Peliä ei voitu ladata. Tiedostossa oleva tieto on viallinen.")
+            return Board([0]*81)
+        if len(board.board) != 81 or len(board.locks) != 81:
+            print("Peliä ei voitu ladata. Tiedostossa oleva tieto on viallinen.")
+            return Board([0]*81)
         return board
 
     def save_game(self, file_name, board):
@@ -24,9 +31,18 @@ class SaveManager:
     def new_game(self):
         """Arpoo satunnaisen peliruudukon games.txt tiedostosta ja palauttaa sen.
         Käytetään, kun pelaaja aloittaa uuden pelin"""
-        with open("src/sudoku/games.txt","r",encoding = "utf-8") as reader:
-            line = reader.read().splitlines()
-            board = Board(random.choice(line))
+        try:
+            with open("src/sudoku/games.txt","r",encoding = "utf-8") as reader:
+                line = reader.read().splitlines()
+        except FileNotFoundError:
+            print("Tiedostoa src/sudoku/games.txt ei löytynyt.")
+            return Board([0]*81)
+        boardstr = random.choice(line)
+        if len(boardstr) != 81:
+            print("Yritettiin ladata korruptoitunut rivi tiedostosta src/sudoku/games.txt. Lataa kyseinen tiedosto uudestaan.")# pylint: disable=line-too-long
+            print(len(boardstr))
+            return Board([0]*81)
+        board = Board(boardstr)
         return board
 
     def add_new(self, board):
