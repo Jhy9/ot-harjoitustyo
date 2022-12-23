@@ -14,7 +14,7 @@ poetry run invoke start
 ```
 
 ## Pelaaminen
-Pelin käynnistyksessä avautuu sudokun pelinäkymä, johon on arvottu satunnainen aloitusruudukko:
+Pelin käynnistyksessä avautuu sudokun pelinäkymä, johon on arvottu satunnainen aloitusruudukko tiedostosta src/sudoku/games.txt:
 
 ![](kuvat/peliruudukko.png)
 
