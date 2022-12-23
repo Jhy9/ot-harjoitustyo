@@ -50,5 +50,6 @@ Valikon toiminnot ovat seuraavat:
  ![](kuvat/peliluomisvalikko.png)
  
  Tyhjennä - Tyhjentää peliruudun, jotta käyttäjä voi vapaasti lisätä sinne lukuja. Ruudut, joihin käyttäjä lisää luvun, tulevat olemaan lukittuja, jos peli tallennetaan komennolla tallenna uudeksi.
+ ![](kuvat/pelityhja) ![](kuvat/peliluotu)
  Tallenna uudeksi - Tallentaa peliruudukon datan tiedostoon src/sudoku/games.txt. Tämän jälkeen, kun käyttäjä aloittaa uuden pelin komennolla Uusi peli, voi hän saada satunnaisesti tämän luodun pelin ratkaistavakseen.
- 
+ ![](kuvat/peliluotupelattavana)
