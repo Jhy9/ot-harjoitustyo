@@ -43,6 +43,7 @@ Valikon toiminnot ovat seuraavat:
  Tallenna peli- Avaa tallennusnäkymän, jossa käyttäjä voi tallentaa kesken jääneen pelin.
  Sulje - sulkee ohjelman
  ![](kuvat/pelilatausnakyma.png)  ![](kuvat/pelitallennusnakyma.png)
+ 
  Tallennuksen ja latauksen oletuskansio on kohteessa src/Savegame
  
  Pelin luomisvalikko on seuraava:
@@ -50,6 +51,9 @@ Valikon toiminnot ovat seuraavat:
  ![](kuvat/peliluomisvalikko.png)
  
  Tyhjennä - Tyhjentää peliruudun, jotta käyttäjä voi vapaasti lisätä sinne lukuja. Ruudut, joihin käyttäjä lisää luvun, tulevat olemaan lukittuja, jos peli tallennetaan komennolla tallenna uudeksi.
- ![](kuvat/pelityhja) ![](kuvat/peliluotu)
+ 
+ ![](kuvat/pelityhja.png) ![](kuvat/peliluotu.png)
+ 
  Tallenna uudeksi - Tallentaa peliruudukon datan tiedostoon src/sudoku/games.txt. Tämän jälkeen, kun käyttäjä aloittaa uuden pelin komennolla Uusi peli, voi hän saada satunnaisesti tämän luodun pelin ratkaistavakseen.
- ![](kuvat/peliluotupelattavana)
+ 
+ ![](kuvat/peliluotupelattavana.png)
