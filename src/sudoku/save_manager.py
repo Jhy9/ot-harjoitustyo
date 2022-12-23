@@ -8,16 +8,20 @@ class SaveManager:
         """Lataa peliruudukon datan parametrin tekstitiedostosta,
         luo uuden ruudukon datan perusteella ja palauttaa sen"""
         file = file_name
+        error_message = "Peliä ei voitu ladata. Tiedoston data vaurioitunut." 
         with open(file,"r", encoding = "utf-8") as reader:
             data = reader.read()
         try:
             game_data = data.split(",")
             board = Board(game_data[0],game_data[1])
         except IndexError:
-            print("Peliä ei voitu ladata. Tiedostossa oleva tieto on viallinen.")
+            print(error_message)
             return Board([0]*81)
-        if len(board.board) != 81 or len(board.locks) != 81:
-            print("Peliä ei voitu ladata. Tiedostossa oleva tieto on viallinen.")
+        except ValueError:
+            print(error_message)
+            return Board([0]*81)
+        if len(board.board) != 81:
+            print(error_message)
             return Board([0]*81)
         return board
 
@@ -39,7 +43,7 @@ class SaveManager:
             return Board([0]*81)
         boardstr = random.choice(line)
         if len(boardstr) != 81:
-            print("Yritettiin ladata korruptoitunut rivi tiedostosta src/sudoku/games.txt. Lataa kyseinen tiedosto uudestaan.")# pylint: disable=line-too-long
+            print("Yritettiin ladata korruptoitunut rivi tiedostosta src/sudoku/games.txt. Lataa tiedosto games.txt uudestaan.")# pylint: disable=line-too-long
             print(len(boardstr))
             return Board([0]*81)
         board = Board(boardstr)
