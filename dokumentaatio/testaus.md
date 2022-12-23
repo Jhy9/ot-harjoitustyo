@@ -17,14 +17,15 @@ Ruudun tarkistuksissa katsotaan, että ruutujen lukitukset toimivat ja että ruu
 ### Ruudukon tarkistukset (luokka board)
 Ruudukon tarkistuksissa tarkastellaan lähinnä luokkien board ja tile yhteistoimintaa. Tämän lisäksi tarkastetaan, että luokan board tuloste on oikea.
 ### Pelin tarkistusten testaus(luokka game)
-Pelin tarkistuksia testataan ennaltamäärätyn board olion avulla, sillä normaalisti luokan game konstruktoria käytettäessä board on satunnainen. Testeissä board-oliota muokataan eri tavoilla ja katsotaan, että tarkistukset antavat oikean palautteen.
+Pelin tarkistuksia testataan ennaltamäärätyn board olion avulla, sillä normaalisti luokan game konstruktoria käytettäessä board on satunnainen. Testeissä board-oliota muokataan eri tavoilla ja katsotaan, että tarkistukset antavat oikean palautteen. Metodia load ei testattu, sillä se ainoastaan kutsuu luokan save_game metodia.
 ### Tallennus ja lataus(luokka save_manager)
-Luokan save_manager toimintaa testataan luomalla unittesteissä tiedosto test.txt kansioon Savegame johon suoritetaan tiedoston lukuja/kirjoituksia. Metodia add_new ei testattu unittesteillä sivuvaikutusten vuoksi, sillä metodi lisää rivejä tiedostoon games.txt.
+Luokan save_manager toimintaa testataan luomalla unittesteissä tiedosto test.txt kansioon Savegame johon suoritetaan tiedoston lukuja/kirjoituksia. Metodia add_new ei testattu unittesteillä sivuvaikutusten vuoksi, sillä metodi lisää rivejä tiedostoon games.txt. Latauksen virhetilanteita ei myöskään tarkistettu unittestein vaan se tehtiin manuaalisesti.
 ### Integraatio
 Luokan board testeissä testataan integraatiota luokan tile kanssa. Luokkien game ja save_manager testeissä testataan integraatiota luokan board kanssa.
 ### Kattavuus
-*kuva*
-Testien haaraumakattavuus on noin 98%. Testien ulkopuolelle jäivät siis edellä mainitut luokan game metodi load sekä save_manager luokan metodi add_new. Kummankin metodin toiminta on todettu manuaalisesti.
+![](kuvat/testikattavuus1.png)
+
+Testien haaraumakattavuus on noin 91%. Testien ulkopuolelle jäivät siis edellä mainitut luokan game metodi load sekä save_manager luokan metodi add_new.  Kummankin metodin toiminta on todettu manuaalisesti.
 ## Järjestelmä
 ### Asennus
 Sovellus on asennettu etäyhteydellä cubbli linuxille readme:n ohjeistuksella. 
