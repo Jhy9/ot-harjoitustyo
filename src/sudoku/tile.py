@@ -7,7 +7,8 @@ class Tile:
     lock = False
 
     def __init__(self, value, lock = None):
-        """Konstruktori saa syötteenä ruudun halutun lähtöarvon ja mahdollisesti tiedon, että tuleeko ruudun olla lukittu.
+        """Konstruktori saa syötteenä ruudun halutun lähtöarvon ja mahdollisesti tiedon,
+        että tuleeko ruudun olla lukittu.
         Lähtökohtaisesti ruutu ei ole lukittu. Value 0 tarkoittaa tyhjää ruutua"""
         if str(value) in self.valid_values:
             val = int(value)

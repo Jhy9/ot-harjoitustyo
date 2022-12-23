@@ -2,14 +2,16 @@ import math
 from sudoku.save_manager import SaveManager
 from sudoku.board import Board
 class Game:
-    """Pelin pääluokka, joka pitää itsellään pelin ruudukkoa sekä suorittaa ruudukon tarkistukset."""
+    """Pelin pääluokka:
+    Pitää itsellään pelin ruudukkoa sekä suorittaa ruudukon tarkistukset."""
     board = None
     save_manager = None
 
     def __init__(self, create = None):
-        """Konstruktori, joka ilman konstruktorin parametria hakee pelille uuden ruudukon save_manager luokasta.
-        Jos konstruktori saa arvon(, eli create ei ole tyhjä), niin siirrytään pelin luomistilaan, eli pelaajalle annetaan vain tyhjä ruudukko, jota hän voi
-        täyttää."""
+        """Konstruktori, joka ilman konstruktorin parametria hakee
+        pelille uuden ruudukon save_manager luokasta.
+        Jos konstruktori saa arvon(, eli create ei ole tyhjä), niin siirrytään pelin luomistilaan,
+        eli pelaajalle annetaan vain tyhjä ruudukko, jota hän voi täyttää."""
         self.save_manager = SaveManager()
         if create is None:
             self.board = self.save_manager.new_game()
@@ -17,7 +19,8 @@ class Game:
             self.board = Board([0]*81)
 
     def load(self, name):
-        """Pyytää save_manageria lataamaan ruudukon muistista tiedostosta name(parametri) ja tallettaa sen board muuttujaan"""
+        """Pyytää save_manageria lataamaan ruudukon muistista
+        tiedostosta name(parametri) ja tallettaa sen board muuttujaan"""
         self.board = self.save_manager.load_game(name)
 
     def check_board(self):
@@ -26,16 +29,16 @@ class Game:
         jotka kuuluvat virheelliseen riviin/sarakkeeseen/3x3 ruutuun"""
         errors = []
         board = self.board.give_array_form()
-        errors.append(self.check_rows(board))
-        errors.append(self.check_columns(board))
-        errors.append(self.check_squares(board))
-        if errors == [[],[],[]]:
-            if self.check_win(board)== 1:
+        errors += self._check_rows(board)
+        errors+=self._check_columns(board)
+        errors += self._check_squares(board)
+        if not errors:
+            if self._check_win(board)== 1:
                 return 2
             return 1
         return errors
 
-    def check_rows(self, board):
+    def _check_rows(self, board):
         """Tarkistaa rivit virheiden varalta"""
         #Palauttaa ruudut, jotka kuuluvat virheellisiin riveihin
         errors = []
@@ -43,11 +46,11 @@ class Game:
             counts = [0]*10
             for i in range(9):
                 counts[board[j*9+i]] +=1
-            if self.array_check(counts) == 0:
-                errors.append(self.tile_marker(1,j*9))
+            if self._array_check(counts) == 0:
+                errors += self._tile_marker(1,j*9)
         return errors
 
-    def check_columns(self, board):
+    def _check_columns(self, board):
         """Tarkistaa ruudukon sarakkeet virheiden varalta"""
         #Palauttaa ruudut, jotka kuuluvat virheellisiin sarakkeisiin
         errors = []
@@ -55,11 +58,11 @@ class Game:
             counts = [0]*10
             for j in range(9):
                 counts[board[j*9+i]] +=1
-            if self.array_check(counts) == 0:
-                errors.append(self.tile_marker(2,i))
+            if self._array_check(counts) == 0:
+                errors += self._tile_marker(2,i)
         return errors
 
-    def check_squares(self, board):
+    def _check_squares(self, board):
         """Tarkistaa 3x3 ruudut virheiden varalta"""
         #Palauttaa ruudut, jotka kuuluvat virheellisiin 3x3 ruudukkoihin
         errors = []
@@ -67,11 +70,11 @@ class Game:
             counts = [0]*10
             for j in range (9):
                 counts[board[math.floor(i/3)*27+i%3*3+j%3+math.floor(j/3)*9]] += 1
-            if self.array_check(counts) == 0:
-                errors.append(self.tile_marker(3, math.floor(i/3)*27+i%3*3))
+            if self._array_check(counts) == 0:
+                errors += self._tile_marker(3, math.floor(i/3)*27+i%3*3)
         return errors
 
-    def check_win(self, board):
+    def _check_win(self, board):
         """Jos ruudukossa ei ole yhtään nollaa(eli tyhjiä ruutuja) ja virheitä ei ole, on peli
             voitettu
             Saa syötteenä peliruudukon"""
@@ -80,7 +83,7 @@ class Game:
                 return 0
         return 1
 
-    def array_check(self, array):
+    def _array_check(self, array):
         """Tarkastaa, onko virhe tapahtunut:
         Jos rivillä/sarakkeella/ruudukolla on kaksi samaa numeroa, niin se on virhe.
         Saa syötteenä arrayn, jossa on kunkin numeron/tyhjän ruudun ilmaantumisten määrä."""
@@ -90,7 +93,7 @@ class Game:
                 return 0
         return 1
 
-    def tile_marker(self, tiles, start):
+    def _tile_marker(self, tiles, start):
         """Palauttaa virheelliset ruudut
         Saa syötteenä merkittävän ruutukokoelman tyypin sekä aloitusindeksin"""
         #tiles 1 = rivi, tiles 2 = sarake, tiles 3 = 3x3 ruudukko

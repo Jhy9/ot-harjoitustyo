@@ -19,15 +19,15 @@ class TestGame(unittest.TestCase):
 
     def test_check_board_returns_faulty_row(self):
         self.game.board.change_value(0, 5)
-        self.assertEqual(self.game.check_board(), [[[0, 1, 2, 3, 4, 5, 6, 7, 8]],[],[]])
+        self.assertEqual(self.game.check_board(), [0, 1, 2, 3, 4, 5, 6, 7, 8])
 
     def test_check_board_returns_faulty_column(self):
         self.game.board.change_value(0, 7)
-        self.assertEqual(self.game.check_board(), [[],[[0, 9, 18, 27, 36, 45, 54, 63, 72]],[]])
+        self.assertEqual(self.game.check_board(), [0, 9, 18, 27, 36, 45, 54, 63, 72])
 
     def test_checkboard_returns_faulty_square(self):
         self.game.board.change_value(3, 4)
-        self.assertEqual(self.game.check_board(), [[],[],[[3, 4, 5, 12, 13, 14, 21, 22, 23]]])
+        self.assertEqual(self.game.check_board(), [3, 4, 5, 12, 13, 14, 21, 22, 23])
 
     def test_constructor_with_parameter_starts_with_blank_board(self):
         game2 = Game(1)

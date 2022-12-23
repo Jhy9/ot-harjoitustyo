@@ -5,9 +5,6 @@ from sudoku.game import Game
 
 class GameView:
     """Luokka, joka vastaa pelin käyttöliittymästä"""
-    """Huom! board luokan ruudukon indeksit eivät vastaa taulun tiles indeksejä (ei niin loppuun ajateltun suunnittelun vuoksi).
-    Muutamassa kohdassa on laskettu tämän takia muunnos indeksien välillä.
-    Kuva ongelmasta löytyy tiedostosta dokumentaatio/kuvat/indeksit"""
     game = None
     root = None
     tiles = []
@@ -43,13 +40,15 @@ class GameView:
 
     def createBoard(self):
         # Luo peliruudukon
-        self.tiles = []
+        self.tiles = [0]*81
         for i in range(9):
             square = tk.Frame(self.root)
             square.grid(row = math.floor(i/3), column = i%3)
             square.configure(highlightbackground= 'black')
             square.configure(highlightthickness= 4)
             for j in range(9):
+                """Indeksi joudutaan laskemaan, koska ui lisää ruudut 3x3 ruutu kerrallaan kun taas
+                luokan Board oliossa ruudut ovat järjestetty rivi kerrallaan"""
                 index = math.floor(i/3)*27+i%3*3+math.floor(j/3)*9+j%3
                 tile = tk.Text(square, height = 1, width = 2, bg = 'white')
                 tile.grid(row = math.floor(j/3), column= j%3) 
@@ -60,17 +59,14 @@ class GameView:
                         tile.configure(bg = 'lightyellow')
                         tile.configure(state = 'disabled')
                 tile.configure(font=("Arial", 16))
-                self.tiles.append(tile)
+                self.tiles[index]=tile
                 tile.bind('<KeyPress>', lambda event, arg=index: self.set_value(event, arg))
 
     def set_value(self, event, index):
         """Sijoittaa näppäimenpainallus eventistä saadun arvon ruutuun ja sen jälkeen kutsuu game-luokkaa tarkastamaan
         ruudukon. Jos ruudukossa on virheitä tai ruudukko on valmis, kutsutaan määrättyjä metodeja jatkotoimenpiteisiin."""
         self.repaint()
-        tilei = index%9
-        tilej = math.floor(index/9)
-        tileind = math.floor(tilej/3)*27+tilej%3*3+math.floor(tilei/3)*9+tilei%3
-        self.tiles[tileind].delete(1.0, 'end')
+        self.tiles[index].delete(1.0, 'end')
         if event.keysym == 'BackSpace':
             self.game.board.change_value(index, 0)            
         else:
@@ -89,14 +85,9 @@ class GameView:
     def paint_errors(self, errors):
         #Värjää kaikki virheelliset rivit/sarakkeet/3x3 ruudut punaisiksi
         #Ei värjää lukittuja ruutuja
-        for x in errors:
-            for a in x:
-                for i in a:
-                    if self.game.board.locks[i] == 0:
-                        tilei = i%9
-                        tilej = math.floor(i/9)
-                        tileind = math.floor(tilej/3)*27+tilej%3*3+math.floor(tilei/3)*9+tilei%3
-                        self.tiles[tileind].configure(bg = 'pink')
+        for i in errors:
+            if self.game.board.locks[i] == 0:
+                self.tiles[i].configure(bg = 'pink')
 
                     
     def repaint(self):
@@ -104,8 +95,7 @@ class GameView:
         #Tarpeellinen virheellisten ruutujen värin poistamiseksi
         i = 0
         for tile in self.tiles:
-            gameind = math.floor(i/27)*27+math.floor(i%27/9)*3+i%3+math.floor(i%9/3)*9
-            if self.game.board.locks[gameind]==0:
+            if self.game.board.locks[i]==0:
                 tile.configure(bg = 'white')
             i+= 1
 

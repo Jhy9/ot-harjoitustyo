@@ -7,18 +7,19 @@ class Board:
     locks = []
 
     def __init__(self, initial_numbers, locked=None):
-        """Konstruktori, joka luo uuden ruudukon. Saa syötteenä ruudukon kaikki arvot sekä mahdollisesti tiedon
-        lukituista ruuduista locked parametrissa.
-        Täysin uutta peliä aloittaessa luokka itse määrittää lukitut ruudut, mutta jos keskeneräinen peli
-        ladataan muistista niin käytetään sen pelin alkuperäisesti lukittuja ruutuja(, jotka saadaan locked parametrissa)"""
+        """Konstruktori, joka luo uuden ruudukon. Saa syötteenä ruudukon kaikki arvot
+        sekä mahdollisesti tiedon lukituista ruuduista locked parametrissa.
+        Täysin uutta peliä aloittaessa luokka itse määrittää lukitut ruudut,
+        mutta jos keskeneräinen peli ladataan muistista niin käytetään
+        sen pelin alkuperäisesti lukittuja ruutuja(, jotka saadaan locked parametrissa)"""
         self.board = []
         self.locks= []
         if locked is None:
-            self.create_new_board(initial_numbers)
+            self._create_new_board(initial_numbers)
         else:
-            self.load_board(initial_numbers, locked)
+            self._load_board(initial_numbers, locked)
 
-    def create_new_board(self, numbers):
+    def _create_new_board(self, numbers):
         #Luodaan uudelle pelille ruudukko
         for num in numbers:
             self.board.append(Tile(num))
@@ -27,7 +28,7 @@ class Board:
             else:
                 self.locks.append(0)
 
-    def load_board(self, numbers,locks):
+    def _load_board(self, numbers,locks):
         #Luodaan muistista ladatulle keskeneräiselle pelille ruudukko
         size = len(numbers)
         for i in range(size):
