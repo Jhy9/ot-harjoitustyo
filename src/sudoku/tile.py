@@ -18,7 +18,7 @@ class Tile:
         else:
             self.value = 0
         if lock is not None:
-            if lock == 0:
+            if int(lock) == 0:
                 self.lock = False
 
     def change_value(self, new_value):
