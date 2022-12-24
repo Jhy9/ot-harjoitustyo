@@ -41,5 +41,3 @@ poetry run invoke coverage-report
 [Testausdokumentti](dokumentaatio/testaus.md)
 
 [Työaikakirjanpito](dokumentaatio/tyoaikakirjanpito.md)
-
-[Viikon 5 release](https://github.com/Jhy9/ot-harjoitustyo/releases/tag/viikko5)
