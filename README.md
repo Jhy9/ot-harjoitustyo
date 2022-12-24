@@ -27,13 +27,19 @@ Testikattavuusraportin voi generoida komennolla
 ```
 poetry run invoke coverage-report
 ```
-## Dokumentaatio
-[Työaikakirjanpito](dokumentaatio/tyoaikakirjanpito.md)
 
-[Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
+## Linkit
 
 [Changelog](dokumentaatio/changelog.md)
 
+[Käyttöohje](dokumentaatio/kayttoohje.md)
+
 [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
+
+[Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
+
+[Testausdokumentti](dokumentaatio/testaus.md)
+
+[Työaikakirjanpito](dokumentaatio/tyoaikakirjanpito.md)
 
 [Viikon 5 release](https://github.com/Jhy9/ot-harjoitustyo/releases/tag/viikko5)
