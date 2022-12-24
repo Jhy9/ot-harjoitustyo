@@ -5,20 +5,22 @@ Luokkakaavio:
 ```mermaid
 classDiagram
 
-ui -->"1" Game
+GameView -->"1" Game
 Game -->"1" Board
 Board -->"81" Tile
 Game -->"1" SaveManager
 SaveManager ..> Board
 
 ```
-Pelin keskeinen luokka on Game, jonka olio pitää itsellään peliä varten luokkien Board ja SaveManager olioita. Tämän lisäksi Game tarjoaa toiminnallisuuden tarkistaa lauta virheiden varalta metodilla check_game() ja raportoida niistä ui:lle.
+Luokka GameView vastaa visuaalisesta käyttöliittymästä.
 
-Luokan Board olio pitää itsessään pelilautaa, joka koostuu luokan Tile olioista. Board tarjoaa metodin muuttaa jonkin ruudukon sijainnin arvoa. Tämän lisäksi se voi metodeillaan palauttaa oman datansa eri muodoissa luokkien SaveManager, Game ja ui käyttöön. 
+Pelin keskeinen luokka on Game, jonka olio pitää itsellään peliä varten luokkien Board ja SaveManager olioita. Tämän lisäksi Game tarjoaa toiminnallisuuden tarkistaa lauta virheiden varalta metodilla check_game() ja raportoida niistä GameView:lle.
+
+Luokan Board olio pitää itsessään pelilautaa, joka koostuu luokan Tile olioista. Board tarjoaa metodin muuttaa jonkin ruudukon sijainnin arvoa. Tämän lisäksi se voi metodeillaan palauttaa oman datansa eri muodoissa luokkien SaveManager, Game ja GameView käyttöön. 
 
 Luokan Tile olio kuvaa pelinlaudan yhden ruudun sisältöä. Tile tarjoaa metodin muuttaa ruudun sisältöä Board oliolle.
 
-Luokka SaveManager pitää vastuullaan tiedostojen käsittelyn. Se tarjoaa metodeillaan luokille Game ja ui pelien lataus- ja tallennusmahdollisuudet.
+Luokka SaveManager pitää vastuullaan tiedostojen käsittelyn. Se tarjoaa metodeillaan luokille Game ja GameView pelien lataus- ja tallennusmahdollisuudet.
 
 
 ## Toiminnallisuudet
