@@ -16,4 +16,5 @@
 |21.12|5|Pelinäkymän luonti|
 |22.12|4|Käyttöliittymän viimeistely, kommentointi|
 |23.12|6|Koodin korjailua, dokumentointia|
-|Yhteensä: |44|
+|24.12|2|Dokumentointia|
+|Yhteensä: |46|
